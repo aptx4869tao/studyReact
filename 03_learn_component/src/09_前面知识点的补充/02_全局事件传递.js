@@ -14,7 +14,8 @@ class Home extends PureComponent {
     }
 
     handleListener(num, msg) {
-        console.log(num, msg)
+        msg()
+        console.log(num)
         // 传入的数据放在数组里
     }
 
@@ -37,7 +38,10 @@ class Profile extends PureComponent {
         )
     }
     btn() {
-        eventbus.emit('say', 'hello Home', 123)
+        eventbus.emit('say', 'hello Home', this.a)
+    }
+    a() {
+        console.log(111)
     }
 }
 export default class App extends PureComponent {

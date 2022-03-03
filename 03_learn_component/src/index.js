@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './05_React实现solt/style.css'
-import App from './10_受控和非受控组件/01_refs的使用'
-ReactDOM.render(<App />, document.getElementById('root'))
+import App from './12_组件内容补充/01_ref的转发'
+ReactDOM.render(<App name="tao" />, document.getElementById('root'))
