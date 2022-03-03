@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            isLogin: true
+          }
+        }
+        render() {
+          //if判断 适合逻辑代码非常多
+          let wel = null
+          let btn = null
+          if (this.state.isLogin) {
+            wel = <h2>欢迎(if判断)</h2>
+            btn = '退出'
+          } else {
+            wel = <h2>登录</h2>
+            btn = '登录'
+          }
+          return (
+            <div>
+              {wel}
+              <button>{btn}</button>
+              <button
+                onClick={e => {
+                  this.log()
+                }}>
+                {/*三元表达式*/}
+
+                {this.state.isLogin ? '登录成功' : '登录'}
+              </button>
+              <hr />
+              {/*逻辑语前边条件不成立，后边的条件不执行*/}
+              <h2>{this.state.isLogin && '你好'}</h2>
+              <h2>请先登录</h2>
+            </div>
+          )
+        }
+        log() {
+          this.setState({
+            // console.log('按钮被点击')
+            isLogin: !this.state.isLogin
+          })
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector('#app'))
+    </script>
+  </body>
+</html>

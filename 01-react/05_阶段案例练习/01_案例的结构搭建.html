@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="./format-utils.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            books: [
+              {
+                id: 1,
+                name: '《算法导论》',
+                data: '2006-9',
+                price: 85,
+                count: 1
+              },
+              {
+                id: 2,
+                name: '《UNIX变成艺术》',
+                data: '2006-9',
+                price: 59,
+                count: 1
+              },
+              {
+                id: 3,
+                name: '《编程珠玑》',
+                data: '2008-10',
+                price: 39,
+                count: 1
+              },
+              {
+                id: 4,
+                name: '《代码大全》',
+                data: '2006-3',
+                price: 128,
+                count: 1
+              }
+            ]
+          }
+        }
+        render() {
+          //
+          return this.state.books.length ? this.renderBooks() : this.renderTip()
+        }
+        renderBooks() {
+          let books = this.state.books
+          return (
+            <div className="box">
+              <table>
+                <thead>
+                  <tr>
+                    <th className="td1"></th>
+                    <th className="time2">书籍名称</th>
+                    <th className="time">出版日期</th>
+                    <th className="time">价格</th>
+                    <th className="time">购买数量</th>
+                    <th className="time1">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {books.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>{item.data}</td>
+                        <td>{format(item.price)}</td>
+                        <td>
+                          <button
+                            disabled={item.count <= 1}
+                            className="btn"
+                            onClick={e => {
+                              this.changeItem(index, -1)
+                            }}>
+                            -
+                          </button>
+                          <span className="span">{item.count}</span>
+                          <button
+                            className="btn"
+                            onClick={e => {
+                              this.changeItem(index, 1)
+                            }}>
+                            +
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            onClick={e => {
+                              this.remove(index)
+                            }}>
+                            移除
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+              <h2>总价格：{this.get()}</h2>
+            </div>
+          )
+        }
+        renderTip() {
+          return <h2>购物车为空</h2>
+        }
+        // 总价
+        get() {
+          // 1.for循环遍历
+          //   let totalPrice = 0
+          //   for (let item of this.state.books) {
+          //     totalPrice += item.price * item.count
+          //   }
+          //   return format(totalPrice)
+          //   2.filter / map / reduce(归纳为)
+          //   reduce(回调函数，initialValue)
+          /**
+           * 回调函数的参数
+           * 参数一：上次回调函数的结果
+           */
+          const totalPrice = this.state.books.reduce((preValue, item) => {
+            return preValue + item.price * item.count
+          }, 0)
+          return format(totalPrice)
+        }
+        // 加减数量
+        changeItem(index, counter) {
+          const newBooks = [...this.state.books]
+          this.setState({
+            books: newBooks.map((item, indey) => {
+              if (index === indey) {
+                item.count += counter
+              }
+              return item
+            })
+          })
+        }
+        // 移除
+        remove(index) {
+          // react中设计原则：state中的数据不可变
+          //   console.log(index)
+          this.setState({
+            books: this.state.books.filter((item, indey) => index != indey)
+          })
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector('#app'))
+    </script>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 600px;
+      margin: 100px auto;
+    }
+    table {
+      border: 1px solid #eee;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border: 1px solid #eee;
+      height: 50px;
+    }
+    thead {
+      background-color: rgba(153, 153, 153, 0.5);
+      height: 30px;
+    }
+    thead tr {
+      /* display: flex; */
+      /* justify-content: space-between; */
+      text-align: center;
+    }
+    .td1 {
+      width: 20px;
+    }
+    .time {
+      width: 100px;
+    }
+    .time1 {
+      width: 50px;
+    }
+    .time2 {
+      width: 150px;
+    }
+    tbody tr {
+      text-align: center;
+    }
+    .btn {
+      width: 30px;
+    }
+    .span {
+      display: inline-block;
+      margin: auto 8px;
+    }
+  </style>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            msg: '你好呀',
+            num: 200,
+            movies: ['1', '2', '3', '4', '5']
+          }
+
+          this.btn = this.btn.bind(this)
+        }
+
+        render() {
+          const { title, imgUrl, active } = this.state
+          return (
+            <div>
+              <button onClick={this.btn}>按钮</button>
+              <ul>
+                {this.state.movies.map((item, index, arr, e) => {
+                  return (
+                    <li
+                      onClick={e => {
+                        this.btnli(index, e)
+                      }}>
+                      {item}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        }
+        btn(event) {
+          console.log('点击', event)
+        }
+        btnli(index, e) {
+          console.log(index, e)
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

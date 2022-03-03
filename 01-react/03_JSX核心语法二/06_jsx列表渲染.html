@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            names: ['1312', '54', '765', '76', '345'],
+            named: ['1', '2', '3', '4', '5']
+          }
+        }
+        render() {
+          const { names, named } = this.state
+          return (
+            <div>
+              <h2>列表</h2>
+              <ul>
+                {names.map(item => {
+                  return <li>{item}</li>
+                })}
+              </ul>
+              <hr />
+              <h2>列表(过滤)</h2>
+              <ul>
+                {named
+                  .filter(item => item >= 2)
+                  .map(item => (
+                    <li>{item}</li>
+                  ))}
+              </ul>
+              <h2>列表(截取)</h2>
+              <ul>
+                {named.slice(0, 3).map(item => {
+                  return <li>{item}</li>
+                })}
+              </ul>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector('#app'))
+    </script>
+  </body>
+</html>

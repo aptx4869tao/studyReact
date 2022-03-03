@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            msg: '你好呀',
+            num: 200
+          }
+
+          this.btn = this.btn.bind(this)
+        }
+
+        render() {
+          const { title, imgUrl, active } = this.state
+          return (
+            <div>
+              {/*bind绑定this显示绑定*/}
+              <button onClick={this.btn.bind(this)}>按钮</button>
+              {/*使用箭头函数*/}
+              <button onClick={this.add}>+1</button>
+              {/*传入箭头函数，在箭头函数中调用另一个要执行的函数*/}
+              <button
+                onClick={() => {
+                  this.jian()
+                }}>
+                -1
+              </button>
+              <button
+                onClick={() => {
+                  alert('点击')
+                }}>
+                点击
+              </button>
+              <button onClick={alert('点击')}>点击</button>
+            </div>
+          )
+        }
+        btn() {
+          console.log(this.state.msg)
+        }
+        // add() {}
+        // 箭头函数不绑定this
+        add = () => {
+          console.log(this.state.num)
+        }
+        jian() {
+          console.log(this.state.num)
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

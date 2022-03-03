@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 面向对象 封装，继承，多态
+       * 继承：减少重复代码，是多态的前提
+       */
+      class Person {
+        constructor(name, age) {
+          this.name = name
+          this.age = age
+        }
+        running() {
+          console.log('running')
+        }
+      }
+      //   class student {
+      //     constructor(name, age, sno) {
+      //       this.name = name
+      //       this.age = age
+      //       this.sno = sno
+      //     }
+      //     running() {
+      //       console.log('running')
+      //     }
+      //   }
+      //   class Teacher {
+      //     constructor(name, age, title) {
+      //       this.name = name
+      //       this.age = age
+      //       this.title = title
+      //     }
+      //     running() {
+      //       console.log('running')
+      //     }
+      //   }
+      class student extends Person {
+        constructor(name, age, sno) {
+          super(name, age) //指向父类
+          this.sno = sno
+        }
+      }
+      const stu = new student('张三', 18, 110)
+      console.log(stu.name, stu.age, stu.sno)
+      stu.running()
+
+      class Teacher extends Person {
+        constructor(name, age, title) {
+          super(name, age)
+          this.title = title
+        }
+      }
+      const tea = new Teacher('罗翔', 40, 233)
+      console.log(tea.name, tea.age, tea.title)
+      tea.running()
+    </script>
+  </body>
+</html>

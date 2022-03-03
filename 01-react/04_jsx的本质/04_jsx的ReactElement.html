@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {}
+        }
+        render() {
+          // jsx-->createElement函数-->ReactElement(对象树)-->ReactDom.render-->真实DOM
+          // jsx-->createElement函数-->ReactElement(对象树)-->ReactDom.render-->原生的控件(UIbutton)
+          /**
+           * 为什么使用虚拟DOM
+           * 很难跟踪状态发生的改变
+           * DOM操作性能非常低
+           * 会引起回流和重绘
+           */
+          /*#__PURE__*/
+          var a = React.createElement(
+            'div',
+            null,
+            /*#__PURE__*/ React.createElement(
+              'div',
+              {
+                className: 'header'
+              },
+              /*#__PURE__*/ React.createElement(
+                'h1',
+                {
+                  title: '\u6807\u9898'
+                },
+                '\u6807\u9898'
+              )
+            ),
+            /*#__PURE__*/ React.createElement(
+              'div',
+              {
+                className: 'content'
+              },
+              /*#__PURE__*/ React.createElement('h2', null, '\u5185\u5BB9'),
+              /*#__PURE__*/ React.createElement('button', null, '\u6309\u94AE'),
+              /*#__PURE__*/ React.createElement('button', null, '+1'),
+              /*#__PURE__*/ React.createElement(
+                'a',
+                {
+                  href: '#'
+                },
+                '\u767E\u5EA6'
+              )
+            ),
+            /*#__PURE__*/ React.createElement(
+              'div',
+              {
+                className: 'footer'
+              },
+              /*#__PURE__*/ React.createElement('p', null, '\u5C3E\u90E8\u5185\u5BB9')
+            )
+          )
+          console.log(a)
+          return a
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector('#app'))
+    </script>
+  </body>
+</html>

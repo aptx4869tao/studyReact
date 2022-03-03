@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义一个函数
+      function foo() {
+        console.log(this)
+      }
+
+      // 1.调用方式一: 直接调用
+      foo() // window
+
+      // 2.调用方式二: 将foo放到一个对象中,再调用
+      var obj = {
+        name: 'why',
+        foo: foo
+      }
+      obj.foo() // obj对象
+
+      // 3.调用方式三: 通过call/apply调用
+      foo.call('abc') // String {"abc"}对象
+    </script>
+  </body>
+</html>

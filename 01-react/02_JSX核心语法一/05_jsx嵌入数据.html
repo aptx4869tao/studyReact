@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            name: 'why',
+            age: 18,
+            names: ['123', '321', '456', '654'],
+            // 在{}中不能显示
+            test: null,
+            text1: undefined,
+            // 对象不能作为jsx的子类
+            friend: {
+              name: 'kobe',
+              age: 40
+            }
+          }
+        }
+        render() {
+          return (
+            <div>
+              {/*注释*/}
+              <h2>{this.state.name}</h2>
+              <h2>{this.state.names}</h2>
+              <h2>{this.state.test}</h2>
+              <h2>{this.state.test1}</h2>
+              <h2>{this.state.friend}</h2>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  /* width: 100%; */
+  height: 44px;
+  line-height: 44px;
+  display: flex;
+  /* justify-content: space-around; */
+}
+.tabSon {
+  flex: 1;
+  text-align: center;
+}
+.tabSon span {
+  padding: 5px 8px;
+}
+.tabSon.rs {
+  color: rgb(255, 145, 0);
+}
+.tabSon.rs span {
+  border-bottom: 3px solid pink;
+}

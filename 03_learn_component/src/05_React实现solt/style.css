@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 100%;
+  display: flex;
+  /* flex-direction: ; */
+  /* justify-content: space-around; */
+  height: 44px;
+  background: pink;
+  margin-bottom: 50px;
+  text-align: center;
+  line-height: 44px;
+
+
+  
+}
+.nav-left {
+  /* height: 10px; */
+  flex: 1;
+  background: #333;
+}
+.nav-center {
+  flex: 4;
+
+  background: #666;
+}
+.nav-right {
+  flex: 1;
+
+  background: #999;
+}
