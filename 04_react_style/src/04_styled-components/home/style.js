@@ -9,7 +9,9 @@ export const S = styled.div`
 }
 
 `
-
+export const A=styled.h2`
+ color: red;
+`
 export const B=styled.input.attrs({
      placeholder : "你好",
      Bcolor:'red'
@@ -17,7 +19,3 @@ export const B=styled.input.attrs({
 color:${props=>props.color};
 border-color: ${props=>props.Bcolor}
 `
-export const A = styled.h2`
-color:red
-`
- 
