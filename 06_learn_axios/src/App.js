@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+import reuqest from './utils/request'
 export default class App extends PureComponent {
     // async componentDidMount() {
     //     // axios({
@@ -70,46 +71,49 @@ export default class App extends PureComponent {
     // }
 
     componentDidMount() {
-        //请求拦截
-        axios.interceptors.request.use(
-            config => {
-                // 发送网络请求时，在界面的中间位置显示loading组件
+        // //请求拦截
+        // axios.interceptors.request.use(
+        //     config => {
+        //         // 发送网络请求时，在界面的中间位置显示loading组件
 
-                // 某一些请求要求用户必须携带token
+        //         // 某一些请求要求用户必须携带token
 
-                // params/data序列化操作
+        //         // params/data序列化操作
 
-                return config
-            },
-            err => {}
-        )
-        //响应拦截
-        axios.interceptors.response.use(
-            res => {
-                return res.data
-            },
-            err => {
-                if (err && err.response) {
-                    switch (err.response.status) {
-                        case 400:
-                            console.log('请求错误')
-                            break
-                        case 401:
-                            console.log('未授权访问')
-                            break
-                        default:
-                            console.log('其他错误')
-                    }
-                }
-                return err
-            }
-        )
-        axios
-            .get('https://httpbin.org/get', { params: { name: 'name' } })
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {})
+        //         return config
+        //     },
+        //     err => {}
+        // )
+        // //响应拦截
+        // axios.interceptors.response.use(
+        //     res => {
+        //         return res.data
+        //     },
+        //     err => {
+        //         if (err && err.response) {
+        //             switch (err.response.status) {
+        //                 case 400:
+        //                     console.log('请求错误')
+        //                     break
+        //                 case 401:
+        //                     console.log('未授权访问')
+        //                     break
+        //                 default:
+        //                     console.log('其他错误')
+        //             }
+        //         }
+        //         return err
+        //     }
+        // )
+        // reuqest
+        //     .post('/post', { param: { name: 'name' } })
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => {})
+        reuqest({url:'/post',data:{name:'name'},method:'post'}).then(res=>{
+            console.log(res);
+        })
     }
     render() {
         return <div>App</div>

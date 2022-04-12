@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import axios from 'axios'
 // import reportWebVitals from './reportWebVitals';
-axios.defaults.baseURL='https://httpbin.org'
-axios.defaults.timeout=5000
-axios.defaults.headers.common['token']='tao'
 // axios.defaults.headers.post['Content-type']='application/text'
 ReactDOM.render(
     <App />,

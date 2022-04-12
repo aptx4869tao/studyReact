@@ -9,6 +9,7 @@ const instance = axios.create({
 // 请求拦截
 instance.interceptors.request.use(
     config => {
+        console.log(config);
         // 发送网络请求时，在界面的中间位置显示loading组件
 
         // 某一些请求要求用户必须携带token
@@ -22,7 +23,7 @@ instance.interceptors.request.use(
 // 响应拦截
 instance.interceptors.response.use(
     res => {
-        return res.data
+        return res
     },
     err => {
         if (err && err.response) {

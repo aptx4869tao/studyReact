@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function sum(num1, num2) {
+                return num1 + num2
+            }
+            sum(10, 20)
+            let foo = 10
+            // 不是
+            function add(num) {
+                return foo + num
+            }
+            add(5)
+
+            const bar = 10
+            function add2(num) {
+                return num + bar
+            }
+            add2(20)
+        </script>
+    </body>
+</html>
