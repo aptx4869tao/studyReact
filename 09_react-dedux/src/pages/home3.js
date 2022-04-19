@@ -9,13 +9,10 @@ class Home extends PureComponent {
     axios({
       url:'http://123.207.32.32:8000/home/multidata'
     }).then(res=>{
-      // const data=res.data.data
       const banner=res.data.data.banner.list
       const recommend=res.data.data.recommend.list
-      console.log(banner,'banner');
-      console.log(recommend,'recommend');
-      this.props.changeBaner1(res.data.data.banner.list)
-      this.props.changeRecommend1(res.data.data.recommend.list)
+      this.props.changeBaner1(banner)
+      this.props.changeRecommend1(recommend)
     })
   }
   render() {
