@@ -10,10 +10,11 @@ export default class App extends PureComponent {
     }
     render() {
         return (
+            <>
             <TransitionGroup>
                 {this.state.names.map((item, index) => {
                     return (
-                        <CSSTransition key={item} classNames="item" timeout={500} in='true'>
+                        <CSSTransition key={item} classNames="item" timeout={500}>
                             <div>
                                 {item}
                                 <button onClick={e => this.remove(index)}>-</button>
@@ -21,8 +22,11 @@ export default class App extends PureComponent {
                         </CSSTransition>
                     )
                 })}
-                <button onClick={e => this.btn()}>ADD</button>
+                
             </TransitionGroup>
+            <button onClick={e => this.btn()}>ADD</button>
+            </>
+            
         )
     }
     btn() {
