@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { SwitchTransition, CSSTransition } from 'react-transition-group'
-import './transition/SwitchTransition.css'
+import './SwitchTransition.css'
 export default class APP extends PureComponent {
     constructor(props) {
         super(props)

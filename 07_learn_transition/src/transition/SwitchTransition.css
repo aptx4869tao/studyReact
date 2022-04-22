@@ -1,18 +1,18 @@
 .btn-enter {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(100%);
 }
 .btn-enter-active {
     opacity: 1;
-    transform: translateX(0);
-    transition: all 1000ms;
+    transform: translateY(0);
+    transition: all 450ms;
 }
 .btn-exit {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 .btn-exit-active {
     opacity: 0;
-    transform: translateX(100%);
-    transition: all 1000ms;
+    transform: translateY(-100%);
+    transition: all 450ms;
 }
