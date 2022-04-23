@@ -17,8 +17,6 @@ export default class App extends PureComponent {
             <Route exact path='/profile' element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
-          {/* <About/>
-          <Home/> */}
       </div>
     )
   }
