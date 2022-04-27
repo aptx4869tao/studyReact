@@ -10,14 +10,14 @@ export default function App() {
         { to: '/', title: '首页' },
         { to: '/about', title: '关于' },
         { to: '/profile', title: '我的' },
-        { to: `/detail/${counter}`, title: '详情' },
-        { to: '/detail2', title: '详情2' }
+        { to: `/detail/${counter}`, title: '详情' }, // 动态路由
+        { to: '/detail2', title: '详情2', state: { name: 'why', age: 22 } } // state传参
     ]
     return (
         <div>
             {Links.map((item, index) => {
                 return (
-                    <Link key={item.to} to={item.to}>
+                    <Link key={item.to} to={item.to} state={item.state ? item.state : {}}>
                         {item.title}
                     </Link>
                 )

@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom'
 import About, { About1, About2, About3 } from '../page/about'
-import Datail2 from '../page/datail2'
+import Datail2 from '../page/detail2'
 import Detail from '../page/detail'
 import Home from '../page/home'
 import Profile from '../page/profile'
