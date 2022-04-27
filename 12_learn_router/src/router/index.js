@@ -13,7 +13,8 @@ const routes = [
             { path: 'about1', element: <About1 /> },
             { path: 'about2', element: <About2 /> },
             { path: 'about3', element: <About3 /> },
-            { path: '', element: <Navigate to="about1" /> }
+            // { path: '*', element: <Navigate to="/about/about1" /> }
+            { path: '*', element: <About1 /> }
         ]
     },
     { path: '/profile', element: <Profile /> },
