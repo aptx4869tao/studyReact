@@ -1,4 +1,3 @@
-import { logDOM } from '@testing-library/react'
 import React, { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 'react'
 function btn() {
     console.log('子组件函数')
@@ -24,7 +23,7 @@ function FancyInput(props, ref) {
             // inputRef.current.
         }
     }))
-    return <input type="text" ref={inputRef} />
+    return <input type="text" ref={inputRef} name={'why'} age={18} />
 }
 const Fancy = forwardRef(FancyInput)
 // function addBtn(){
