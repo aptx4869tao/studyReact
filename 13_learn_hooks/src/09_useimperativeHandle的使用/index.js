@@ -23,7 +23,7 @@ function FancyInput(props, ref) {
             // inputRef.current.
         }
     }))
-    return <input type="text" ref={inputRef} name={'why'} age={18} />
+    return <input type="text" ref={inputRef} />
 }
 const Fancy = forwardRef(FancyInput)
 // function addBtn(){
