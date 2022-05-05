@@ -5,7 +5,7 @@ function btn() {
 function FancyInput(props, ref) {
     const inputRef = useRef()
     const [data, setData] = useState(0)
-
+    // 通过useImperativeHandle 暴露子组件的需要暴露的属性或方法
     useImperativeHandle(ref, () => ({
         // 把ref进行重写
         focus: () => {
@@ -25,6 +25,7 @@ function FancyInput(props, ref) {
     }))
     return <input type="text" ref={inputRef} />
 }
+// 需要与forwardRef配合使用
 const Fancy = forwardRef(FancyInput)
 // function addBtn(){
 //     ref.current.demo()
