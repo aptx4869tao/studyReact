@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useRoutes } from 'react-router-dom'
-import routes from './router/index'
+import Getrouter from './router/index'
 
 export default function App() {
     const counter = 123
-    const element = useRoutes(routes)
+    // const Element = useRoutes(routes)
     const Links = [
         { to: '/', title: '首页' },
         { to: '/about', title: '关于' },
@@ -22,7 +21,7 @@ export default function App() {
                     </Link>
                 )
             })}
-            {element}
+            <Getrouter />
         </div>
     )
 }
