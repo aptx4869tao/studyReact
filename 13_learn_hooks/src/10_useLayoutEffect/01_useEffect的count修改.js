@@ -1,0 +1,16 @@
+import React, { useEffect, useState } from 'react'
+
+export default function EffectCount() {
+    const [count, setCount] = useState(10)
+    useEffect(() => {
+        if (count === 0) {
+            setCount(Math.random())
+        }
+    }, [count])
+    return (
+        <div>
+            <h2>{count}</h2>
+            <button onClick={e => setCount(0)}>修改</button>
+        </div>
+    )
+}

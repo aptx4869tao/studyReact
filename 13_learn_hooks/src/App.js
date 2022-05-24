@@ -13,7 +13,13 @@ import CallbackDemo1 from './06_useCallback的使用/02_useCallback进行性能�
 import UseMemoDemo from './07_useMemo的使用/01_useMemo复杂计算的应用'
 import MemoHookDemo2 from './07_useMemo的使用/02_useMemo传入子组件'
 import UseRef from './08_useRef的使用'
+import RefHookDemo from './08_useRef的使用/02_useRef引用其他属性'
 import UseimperativeHandle from './09_useimperativeHandle的使用'
+import EffectCount from './10_useLayoutEffect/01_useEffect的count修改'
+import LayoutEffectCount from './10_useLayoutEffect/02_useLayoutEffect的count修改'
+import CustomHookLifeDemo from './11_自定义Hook/01_认识自定义Hook'
+import CustomHook from './11_自定义Hook/02_自定义Hook的练习'
+import CustomLocalStorage from './11_自定义Hook/03_自定义Hook练习-localStorage存储'
 
 export const UserContext = createContext()
 export const ThemeContext = createContext()
@@ -46,7 +52,13 @@ export default function App() {
             {/* <UseMemoDemo /> */}
             {/* <MemoHookDemo2 /> */}
             {/* <UseRef /> */}
-            <UseimperativeHandle />
+            {/* <RefHookDemo /> */}
+            {/* <EffectCount /> */}
+            {/* <LayoutEffectCount /> */}
+            {/* {show && <CustomHookLifeDemo />} */}
+            {/* <CustomHook /> */}
+            <CustomLocalStorage />
+            {/* <UseimperativeHandle /> */}
         </div>
     )
 }
